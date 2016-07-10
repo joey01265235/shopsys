@@ -76,8 +76,13 @@ WSGI_APPLICATION = 'shopsys.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'shopsys',
+        'USER': 'shopsys',
+        'PASSWORD': '123456',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+        'TEST': {}
     }
 }
 
@@ -106,13 +111,17 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'
 
-USE_I18N = True
+#是否支持国际化,不开启时可以不加载翻译模块优化性能
+USE_I18N = False
 
-USE_L10N = True
+#本地化格式支持,为true使用系统locale设置显示数字、时间格式
+USE_L10N = False
 
 USE_TZ = True
+
+DATE_FORMAT = 'Y-m-d'
 
 
 # Static files (CSS, JavaScript, Images)
